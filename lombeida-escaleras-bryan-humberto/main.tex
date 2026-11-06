@@ -4,23 +4,37 @@
 
 \title{Fichas bibliográficas: fundamentos de sistemas distribuidos}
 \author{Bryan Humberto Lombeida Escaleras}
-\date{\today}
 
 \begin{document}
 \maketitle
 
-\section{Introducción}
-Este documento reúne cinco fuentes sobre microservicios, reutilización,
-rendimiento y observabilidad de sistemas de software.
-
 \section{Fichas bibliográficas}
-\begin{enumerate}
-  \item Caso 1: reutilización de microservicios mediante CI/CD e InnerSource \cite{BadDeepUsMuhCheXin2025}.
-  \item Caso 2: modelado del rendimiento de microservicios \cite{CamiMattRussBar2022}.
-  \item Caso 3: ecosistema para la reutilización de microservicios \cite{UsMuhBadDeepSmiChrisNayHiman2022}.
-  \item Caso 4: observabilidad de aplicaciones web \cite{ShatnawiRimaAlsharaDarbordSeriaiBortolaso2026}.
-  \item Caso 5: diagnóstico de fallos en microservicios \cite{ZhangJinLinSunZhangXia2023}.
-\end{enumerate}
+\subsection{Rendimiento de microservicios}
+\noindent\textbf{DOI verificado:} \href{https://doi.org/10.1007/s10664-021-10088-0}{\nolinkurl{10.1007/s10664-021-10088-0}}\par
+\noindent\textbf{Resumen (incluye dato concreto):} El artículo analiza por qué microservicios independientes pierden rendimiento ante cambios de carga. Camilli y Russo modelan temporalmente las violaciones de requisitos con funciones de teoría del crecimiento. Validan el método en Sock Shop, comercio experimental, y en un sistema de telecomunicaciones de Ericsson en producción. Los modelos no lineales acotados, sobre todo curvas S, describen servicios que se recuperan; las tendencias lineales indican degradaciones persistentes. Diez de doce microservicios del sistema de Ericsson presentaron violaciones de rendimiento (sección 5.4, tabla 7). Permite distinguir servicios de aquellos que necesitan atención para mantener rendimiento~\cite{CamiMattRussBar2022}.\par
+\noindent\textbf{Nota personal:} Ahora entiendo que un servicio puede responder lentamente y aun así recuperarse. Me parece útil observar la evolución del problema antes de decidir si necesita más recursos o una corrección.\par
+
+\subsection{Ecosistema de reutilización}
+\noindent\textbf{DOI verificado:} \href{https://doi.org/10.1109/MS.2022.3167447}{\nolinkurl{10.1109/MS.2022.3167447}}\par
+\noindent\textbf{Resumen (incluye dato concreto):} El artículo describe cómo Ericsson reutiliza microservicios entre aplicaciones manteniendo coherencia en configuración y evolución. Los autores presentan Application Development Platform, sustentada en un catálogo interno, reglas de diseño y comprobaciones automáticas. Sus canalizaciones de integración y entrega continua conectan servicios y aplicaciones, usando Spinnaker para coordinar versiones y Helm para desplegar. La experiencia indica que los equipos deben descubrir componentes, conocer su madurez y colaborar con sus mantenedores. El ecosistema ADP comenzó a finales de 2017 (página 69). El caso demuestra que compartir servicios requiere coordinación, reglas claras y herramientas comunes entre equipos~\cite{UsMuhBadDeepSmiChrisNayHiman2022}.\par
+\noindent\textbf{Nota personal:} Me llamó la atención que reutilizar un microservicio implica mucho más que compartir código. También hay que facilitar que otros equipos lo encuentren, comprendan sus reglas y puedan mejorarlo.\par
+
+\subsection{Observabilidad de aplicaciones web}
+\noindent\textbf{DOI verificado:} \href{https://doi.org/10.1016/j.jss.2026.112886}{\nolinkurl{10.1016/j.jss.2026.112886}}\par
+\noindent\textbf{Resumen (incluye dato concreto):} El estudio aborda la dificultad de observar aplicaciones web cuando los registros se añaden manualmente. En Berger-Levrault, esa práctica generaba datos inconsistentes y exigía mantenimiento. Los investigadores diseñan una arquitectura de observabilidad y amplían agentes de OpenTelemetry para recoger eventos y trazas sin modificar el código. Evalúan utilidad y coste de instrumentar aplicaciones industriales. Resultados indican que aporta información para analizar la experiencia de usuario y apoyar pruebas automáticas con baja sobrecarga. Se evaluaron cuatro aplicaciones web industriales de diferentes tecnologías (sección 3). Facilita decisiones~\cite{ShatnawiRimaAlsharaDarbordSeriaiBortolaso2026}.\par
+\noindent\textbf{Nota personal:} Esta lectura me hizo ver que los registros por sí solos pueden dejar preguntas sin respuesta. Entiendo mejor por qué reunir trazas y eventos ayuda a conocer lo que realmente ocurre durante el uso.\par
+\subsection{Diagnóstico de fallos}
+\noindent\textbf{DOI verificado:} \href{https://doi.org/10.1109/TSC.2023.3290018}{\nolinkurl{10.1109/TSC.2023.3290018}}\par
+\noindent\textbf{Resumen (incluye dato concreto):} El artículo estudia cómo localizar el origen de un fallo cuando microservicios conectados presentan síntomas relacionados. Los autores afirman que examinar solo métricas, registros o trazas limita el diagnóstico. Proponen DiagFusion, que representa conjuntamente esas fuentes, amplía muestras para compensar fallos poco frecuentes y construye un grafo de dependencias con datos de despliegue y trazas. Una red neuronal de grafos identifica la instancia causante y clasifica el tipo de fallo. En conjuntos de datos reales y variados, DiagFusion mejoró la localización de causas entre 20,9\% y 368\%, y la clasificación del fallo entre 11\% y 169\% (resumen, página 3851)~\cite{ZhangJinLinSunZhangXia2023}.\par
+\noindent\textbf{Nota personal:} Aprendí que el servicio donde aparece un error no siempre es el que lo causó. Combinar distintas señales me parece una forma más fiable de seguir la cadena del fallo.\par
+
+\subsection{Reutilización con CI/CD e InnerSource}
+\noindent\textbf{DOI verificado:} \href{https://doi.org/10.1007/s10664-024-10595-w}{\nolinkurl{10.1007/s10664-024-10595-w}}\par
+\noindent\textbf{Resumen (incluye dato concreto):} La investigación analiza beneficios y dificultades de compartir microservicios entre productos y equipos de Ericsson. Mediante un estudio de caso en dos fases —entrevistas, discusiones y portales internos, y consulta posterior sobre mejoras aplicadas— identifica costes de aprendizaje, integración y cumplimiento, y presión sobre los equipos responsables. Ericsson responde fomentando contribuciones internas con InnerSource y automatizando comprobaciones de reglas de diseño. El catálogo ADP Marketplace alojaba más de 280 microservicios usados por más de 70 equipos (sección 4.2). Compartir componentes exige apoyo constante, automatización y colaboración entre equipos~\cite{BadDeepUsMuhCheXin2025}.\par
+\noindent\textbf{Nota personal:} Me parece importante considerar el esfuerzo que exige mantener componentes compartidos. La reutilización aporta valor cuando los equipos también pueden contribuir y comprobar los cambios con confianza.\par
 
 \printbibliography[title={Referencias}]
+
+\section*{Declaración de uso de inteligencia artificial}
+Utilicé Codex como apoyo para resolver problemas técnicos de LaTeX, organizar las citas y ajustar la redacción de mis borradores al límite de 100 palabras por resumen. Codex también propuso formulaciones para las notas personales. Los DOI, los datos bibliográficos y las cifras se contrastaron con las fuentes originales. La selección de las ideas y la revisión final de los resúmenes y las notas personales corresponden al autor.
 \end{document}
