@@ -1,0 +1,95 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{csquotes}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\tcbuselibrary{breakable}
+\usepackage[hidelinks]{hyperref}
+\usepackage[backend=biber,style=ieee,sorting=none]{biblatex}
+\addbibresource{referencias.bib}
+\DefineBibliographyStrings{spanish}{artno = {Art. no.}}
+
+% ---------- Macro de ficha ----------
+% #1 clave bib | #2 DOI/ISBN | #3 resumen | #4 dato concreto
+% #5 página/sección del dato | #6 nota personal | #7 uso en TA-IND-01
+\newcommand{\ficha}[7]{%
+  \begin{tcolorbox}[colback=white,colframe=black!60,
+    title={Ficha bibliográfica},breakable]
+    \textbf{Referencia (IEEE):}\\
+    \fullcite{#1}
+
+    \medskip
+    \textbf{DOI / ISBN verificado:} #2
+
+    \medskip
+    \textbf{Resumen (100 palabras):}\\
+    #3
+
+    \medskip
+    \textbf{Dato concreto:} #4 \textit{(#5)}
+
+    \medskip
+    \textbf{Nota personal:}\\
+    #6
+
+    \medskip
+    \textbf{Uso en TA-IND-01:} #7
+  \end{tcolorbox}
+  \vspace{1em}
+}
+
+\title{TA-IND-01: Fichas bibliográficas\\
+\large Sistemas distribuidos y arquitecturas de microservicios}
+\author{Mera Jumbo Allison\\
+Universidad Técnica Estatal de Quevedo\\}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{Declaración de uso de inteligencia artificial}
+Para la realización de este documento se utilizó la herramienta de IA generativa Claude. Su uso se limitó a los siguientes aspectos técnicos y de apoyo:
+\begin{itemize}[nosep]
+    \item Para la propuesta de la estructura del documento en \LaTeX{} (preámbulo, macro de ficha bibliográfica y configuración de \texttt{biblatex} con estilo IEEE).
+    \item Para depurar errores de compilación (carga de la biblioteca \texttt{breakable} de \texttt{tcolorbox} y traducción de la etiqueta de número de artículo en la bibliografía).
+    \item Formateo del archivo \texttt{referencias.bib} con base en las entradas BibTeX que fueron obtenidas desde los sitios de los editores.
+    \item También se usó en la corrección de faltas ortográficas y gramaticales.
+\end{itemize}
+Se usó además Gemini en cuestiones de traducción del inglés al español.\\
+Los datos bibliográficos se verificaron abriendo cada DOI y cotejando autores, año, título, revista, volumen y páginas con la página del editor. El contenido de las fichas se contrastó con el texto completo de cada artículo.
+
+\section{Criterios de selección y verificación}
+Se seleccionaron cinco fuentes académicas sobre arquitecturas de microservicios, publicadas entre 2022 y 2025. Las cinco fuentes son artículos de revistas: cuatro de \textit{IEEE Access} y uno de \textit{PeerJ Computer Science}. Todas tienen autoría que se puede identificar y DOI.
+
+La verificación de cada fuente siguió los siguientes pasos:
+\begin{enumerate}[nosep]
+    \item Se abrió el DOI en el navegador y se comprobó que dirigía a la obra citada.
+    \item Se verificaron autores, año, título, revista, volumen y páginas con la página oficial del editor.
+    \item Se obtuvo la entrada BibTeX desde la opción de citación del propio editor; en el caso de \textit{PeerJ Computer Science}, se obtuvo mediante descarga.
+\end{enumerate}
+\section{Fichas bibliográficas}
+
+\subsection{Fuente 1}
+\ficha{fuente1}{10.1109/ACCESS.2025.3562125}{Este artículo habla de la necesidad de garantizar la confiabilidad y el rendimiento en arquitecturas de microservicios dentro de entornos distribuidos en la nube, fog y edge. Se menciona que, aunque la transición de sistemas monolíticos a microservicios permite escalabilidad y flexibilidad, esto introduce una gran complejidad a nivel operativo causando puntos de falla, cuellos de botella, problemas al gestionar recursos. Los autores realizan una revisión de la literatura sobre el estado del arte en la que construyen una taxonomía temática que clasifica el panorama en 7 ejes clave. Como resultado se encuentra que el 34.2\% de las soluciones se centran en el Análisis de la causa raíz (RCA) y un 30.1\% en Análisis de rendimiento.}{Definición de trazas en microservicios: \enquote {Las trazas se integran dentro del sistema complejo para identificar cuellos de botella, brindar visibilidad de extremo a extremo de la solicitud y detectar componentes defectuosos de la aplicación, sin identificar necesariamente la causa de la falla.}}{p.~2 del PDF, Sección I.}{El artículo deja claro que dividir un sistema grande en partes pequeñas ayuda a que todo escale, pero complica bastante saber qué está fallando cuando algo se rompe. }{La información de este artículo se puede usar como parte introductoria de la importancia de los microservicios y de cómo estos facilitan la escalabilidad, señalando también las dificultades al integrar microservicios en un sistema.}
+
+\subsection{Fuente 2}
+\ficha{fuente2}{10.1109/ACCESS.2024.3406500}{En este artículo se presenta una revisión de la literatura donde se analizan 54 publicaciones científicas enfocadas en las amenazas de seguridad entre servicios y sus estrategias de mitigación. El problema es que, a diferencia de los monolitos, los microservicios dependen de cientos de interacciones a través de la red, lo que se traduce en múltiples puntos de entrada para los atacantes. Establecieron categorías de amenazas y de estrategias de mitigación. Como resultado, el 74\% de las publicaciones se centran en proponer o validar estrategias de mitigación, mientras que solo el 26\% profundiza en la categorización de amenazas de seguridad. Las estrategias más mencionadas abarcan el uso de código seguro y patrones de arquitectura. }{\enquote{En este artículo definimos la seguridad inter-servicio como el conjunto de estrategias dedicadas a asegurar las interacciones y conexiones entre microservicios, excluyendo los mecanismos de seguridad que operan en el borde.}}{p.~2 del PDF, Sección I.}{La industria está muy enfocada en vender o proponer soluciones de seguridad, pero no dedican el tiempo necesario a analizar a fondo como ocurren realmente los ataques entre los microservicios.}{Lo que describe este artículo se puede usar como justificación de por qué el proyecto dedica tiempo y recursos a la seguridad interna y no solo a la seguridad del front-end. También sirve para el diseño de la arquitectura de seguridad, ya que el mayor peligro en los microservicios radica en la expansión del entorno de ataque.}
+
+\subsection{Fuente 3}
+\ficha{fuente3}{10.1109/ACCESS.2023.3305687}{Este estudio realizado por la Escuela Politécnica Nacional (Ecuador) se enfoca en los principios de diseño, patrones de arquitectura y retos de migración desde arquitecturas monolíticas hacia microservicios. El problema es que, aunque la migración a microservicios está en auge, existe un vacío en el cuerpo de conocimiento sobre qué principios teóricos deben fundamentar la división de un monolito. Los autores realizaron una revisión bibliográfica profunda, categorizando fundamentos de POO y patrones de microservicios, y recopilaron ventajas y desventajas. Como resultado, se demuestra que la arquitectura de microservicios no reinventa la rueda, aunque no todo es positivo, ya que el artículo menciona la curva de aprendizaje inicial, la latencia en la red, la duplicación de datos para mantener autonomía y la alta dificultad para depurar o realizar pruebas.}{\enquote{Por otro lado, un microservicio es un elemento de una aplicación que puede ejecutarse de manera independiente, a diferencia de una aplicación monolítica, donde cada microservicio se desarrolla para cumplir una funcionalidad de negocio específica y no se desarrolla basándose en capas lógicas como una aplicación monolítica, posee un acoplamiento flexible y una alta cohesión funcional; pueden interactuar entre sí a través de un sistema de mensajería.}}{p.~5 del PDF, Sección II}{Lo más valioso de este artículo es cómo demuestra que las ideas \enquote{modernas} de microservicios en realidad se sostienen sobre bases de ingeniería de software que se formularon hace muchos años. Esto deja muy claro que, antes de ponerse a programar o dividir código, debemos entender el dominio del problema.}{Sirve para justificar la arquitectura y la selección de patrones. Con base en las recomendaciones de este paper, se aplicaría \textit{Domain-Driven Design} para la definición de los límites de cada servicio y el patrón \textit{Service Discovery} para la comunicación dinámica.}
+
+\subsection{Fuente 4}
+\ficha{fuente4}{10.1109/ACCESS.2022.3200666}{En este artículo se presenta una evaluación cuantitativa y basada en un prototipo real sobre el uso de la arquitectura de microservicios en un servidor \textit{Edge} para resolver la fragmentación y la falta de interoperabilidad en entornos de IoT. En vez de que cada aplicación IoT opere en un \enquote{silo} cerrado y duplicado, se propone descomponer las aplicaciones en microservicios contenerizados que se puedan compartir. Las soluciones IoT comerciales disponibles están implementadas de extremo a extremo sin opción de reutilizar código ni compartir sensores. Para ello, se diseñó una arquitectura para el \textit{Edge Server} usando Docker, donde se dividieron los contenedores en contenedores de sistema y contenedores de aplicación. Se menciona que se construyó un banco de pruebas usando Arduino con un módulo Wi-Fi y un sensor de temperatura, conectado inalámbricamente a una laptop. La evaluación del prototipo demostró la viabilidad y eficiencia de la arquitectura de microservicios en el Borde para entornos IoT.}{Justificación de microservicios en el Borde para IoT: \enquote{Para abordar esta limitación, se ha propuesto una arquitectura basada en microservicios. En esta arquitectura, una aplicación se construye a partir de una selección de microservicios aislados individualmente, donde cada microservicio es una pieza de software autocontenida con interfaces claramente definidas que implementa una funcionalidad simple y bien definida. En comparación con un modelo monolítico tradicional, dicha arquitectura promueve la modularidad, la reutilización de código, la escalabilidad y la resiliencia.}}{p.~2 del PDF, Sección I}{Lo interesante de este paper es que pasa de la teoría a números utilizando un prototipo con Arduino, Wi-Fi y contenedores Docker en un servidor \textit{Edge}. Esto demuestra que, en entornos con recursos ajustados, compartir microservicios reduce casi a la mitad el consumo de memoria RAM. Además, menciona que la base de datos suele ser el principal cuello de botella de la CPU.}{Se usará en la sección de requisitos no funcionales (rendimiento y recursos), en lo que concierne al consumo de memoria y tiempos de respuesta. También se usará en el análisis de riesgos y mitigaciones.}
+
+\subsection{Fuente 5}
+\ficha{fuente5}{10.7717/peerj-cs.779}{En este caso, esta revisión sistemática analiza 290 publicaciones sobre seguridad en microservicios. Explica que, al dividir una aplicación en partes independientes, aumentan los puntos por donde un atacante puede entrar. Se menciona que los problemas más comunes son los ataques que saturan el sistema (40.5\%) y la suplantación de identidad entre servicios (40\%). Aunque casi el 40\% prefiere controlar la seguridad desde un punto central, cada vez se usan más alternativas distribuidas. El artículo alerta de que casi nadie planea la seguridad desde el inicio y se aplican pocos estándares oficiales.}{\enquote{Los microservicios interactúan entre sí a través de APIs de paso de mensajes\ldots{} Desafortunadamente, las ventajas de los microservicios tienen un costo: los sistemas distribuidos son difíciles de gestionar y el aumento en el número de servicios de una aplicación otorga a los actores maliciosos una superficie de ataque mayor.}}{Sección I, \textit{Introduction}, p.~2}{El artículo nos dice que la seguridad en microservicios suele ser un añadido posterior y no un elemento de diseño. Muestra que los principales riesgos son el DoS y el \textit{spoofing} inter-servicio.}{Sirve como fundamentación teórica para la sección de análisis de riesgos, justificando la implementación de controles de seguridad en la comunicación inter-servicio ante la ampliación de la superficie de ataque.}
+\nocite{fuente1,fuente2,fuente3,fuente4,fuente5}
+
+\printbibliography[title={Referencias}]
+
+\end{document}
