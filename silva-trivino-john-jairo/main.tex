@@ -1,0 +1,154 @@
+
+\documentclass[12pt,a4paper]{article}
+
+% ---------- Paquetes ----------
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{csquotes}
+\usepackage{xcolor}
+\usepackage[hidelinks]{hyperref}
+\usepackage[backend=biber,style=ieee,sorting=none]{biblatex}
+
+\DefineBibliographyStrings{spanish}{artno={art.}}
+\addbibresource{referencias.bib}
+
+\setlength{\parskip}{0.6em}
+\setlength{\parindent}{0pt}
+
+% Texto pendiente (en rojo): bórralo y escribe el tuyo
+\newcommand{\pendiente}[1]{\textcolor{red}{#1}}
+
+\title{Fichas bibliográficas:\\Fundamentos de sistemas distribuidos y arquitecturas distribuidas}
+\author{Silva Triviño John Jairo\\Sistemas Distribuidos --- UTEQ}
+\date{Noviembre de 2026}
+
+\begin{document}
+
+\maketitle
+
+\textbf{Actividad:} FORM-FB-01 --- Semana 2\\
+\textbf{Estudiante:} Silva Triviño John Jairo
+
+% =====================================================
+\section*{Declaración de uso de inteligencia artificial}
+
+Para la elaboración de este trabajo se utilizó Claude (Anthropic) de manera puntual como herramienta de apoyo para aclarar algunas dudas y revisar la redacción de ciertos apartados. La búsqueda de las fuentes, la consulta de los documentos originales y la verificación de sus datos bibliográficos se realizaron mediante la revisión de las publicaciones correspondientes. Los resúmenes fueron elaborados a partir de la lectura y comprensión de las fuentes. También se utilizó la herramienta como apoyo para proponer y mejorar la redacción de las notas personales, las cuales fueron revisadas y adaptadas antes de incorporarlas al documento. La información bibliográfica fue contrastada con las publicaciones originales.
+
+\clearpage
+
+% =====================================================
+% FICHA 1
+% =====================================================
+\section{Ficha 1}
+
+\paragraph{Referencia (IEEE).}
+\fullcite{abgaz2023}
+
+\paragraph{DOI / ISBN verificado.}
+DOI: \href{https://doi.org/10.1109/TSE.2023.3287297}{10.1109/TSE.2023.3287297}
+
+\paragraph{Resumen (aprox. 100 palabras).}
+Muchas empresas quieren dividir sus sistemas monolíticos en microservicios, pero los trabajos sobre cómo hacerlo están dispersos y suelen limitarse a casos concretos. Los autores hacen una revisión sistemática: parten de 5022 resultados, aplican cuatro filtros y una ronda de bola de nieve, y analizan 35 estudios publicados entre 2015 y 2021. Con ellos construyen M2MDF, un marco de seis fases que va desde recoger datos del monolito hasta desplegar los servicios. Concluyen que el tema sigue en una etapa temprana: faltan métodos que combinen datos estáticos, dinámicos y evolutivos, herramientas integradas y métricas comunes para comparar propuestas.
+
+\paragraph{Dato concreto.}
+La búsqueda inicial recuperó 5022 estudios; tras cuatro etapas de depuración quedaron 33 y, con la técnica de bola de nieve, 35 \textit{(Sección III-B, pp. 4217--4218)}.
+
+\paragraph{Nota personal.}
+Esta investigación me ayudó a entender que pasar de un sistema monolítico a microservicios no consiste solamente en dividir el programa en partes más pequeñas. Es necesario analizar cómo funciona el sistema y decidir qué servicios conviene separar. Me parece importante porque permite comprender mejor las dificultades que puede tener una empresa al modernizar su software. En el TA-IND-01 utilizaré esta fuente para explicar la arquitectura del sistema que analice y los beneficios o problemas que puede presentar una separación por servicios.
+
+\clearpage
+
+% =====================================================
+% FICHA 2
+% =====================================================
+\section{Ficha 2}
+
+\paragraph{Referencia (IEEE).}
+\fullcite{cerny2023}
+
+\paragraph{DOI / ISBN verificado.}
+DOI: \href{https://doi.org/10.1016/j.jss.2023.111829}{10.1016/j.jss.2023.111829}
+
+\paragraph{Resumen (aprox. 100 palabras).}
+Varios trabajos han estudiado los antipatrones y malos olores de diseño en microservicios, pero usan términos distintos y casi no se solapan, lo que impide tener una visión única. Los autores realizan un estudio terciario: una revisión sistemática que analiza solo estudios secundarios, siete en total, sobre malas prácticas de diseño. A partir de ellos elaboran un catálogo con 58 antipatrones disjuntos en cinco categorías, derivados de 203 identificados al inicio, y reúnen métodos para detectarlos. El resultado sirve de referencia a quienes diseñan microservicios y de base para herramientas que cuiden la calidad mientras el sistema evoluciona.
+
+\paragraph{Dato concreto.}
+El catálogo reúne 58 antipatrones disjuntos en cinco categorías, derivados de 203 antipatrones identificados originalmente en siete estudios secundarios \textit{(Resumen, p.~1)}.
+
+\paragraph{Nota personal.}
+Lo que más me llamó la atención de esta fuente es que utilizar microservicios no garantiza que un sistema esté bien diseñado. También pueden aparecer errores de organización que terminan afectando su funcionamiento y mantenimiento. Esto me permitió comprender que no basta con separar las funciones de una aplicación, sino que también hay que cuidar la forma en que se relacionan los servicios. En el TA-IND-01 me servirá para identificar posibles problemas de diseño y analizar qué tan adecuada es la arquitectura del sistema estudiado.
+
+\clearpage
+
+% =====================================================
+% FICHA 3
+% =====================================================
+\section{Ficha 3}
+
+\paragraph{Referencia (IEEE).}
+\fullcite{zhang2024}
+
+\paragraph{DOI / ISBN verificado.}
+DOI: \href{https://doi.org/10.1145/3636553}{10.1145/3636553}
+
+\paragraph{Resumen (aprox. 100 palabras).}
+Los algoritmos de consenso tolerantes a fallos bizantinos permiten que un sistema distribuido siga funcionando aunque algunos nodos actúen de forma arbitraria, y el auge de blockchain ha multiplicado las propuestas. Entenderlas cuesta porque cada una parte de supuestos distintos y mide la complejidad de otra manera. Los autores revisan de forma sistemática algoritmos influyentes, los clasifican en tres grupos (más eficientes, más robustos y más disponibles) y comparan su complejidad de mensajes y de tiempo. Además, explican cada protocolo paso a paso, con figuras, y señalan sus fortalezas y debilidades frente a los demás.
+
+\paragraph{Dato concreto.}
+En un sistema con $n = 3f + 1$ nodos, el tamaño mínimo de un quórum bizantino es $2f + 1$, frente a $f + 1$ para fallos benignos como los que toleran Paxos y Raft \textit{(Sección 2, ``Byzantine quorums'', p.~134:5)}.
+
+\paragraph{Nota personal.}
+Con esta lectura pude comprender mejor cómo varios equipos o nodos pueden ponerse de acuerdo dentro de un sistema distribuido, incluso cuando algunos presentan fallos o se comportan de manera incorrecta. Antes no tenía muy clara la diferencia entre los fallos normales y los bizantinos. Considero que este tema es importante porque ayuda a entender cómo se busca mantener la confianza y la continuidad de un sistema. Lo utilizaré en el TA-IND-01 como parte del análisis de tolerancia a fallos y confiabilidad, sin asumir que el sistema estudiado utiliza necesariamente este protocolo.
+
+\clearpage
+
+% =====================================================
+% FICHA 4
+% =====================================================
+\section{Ficha 4}
+
+\paragraph{Referencia (IEEE).}
+\fullcite{singh2022}
+
+\paragraph{DOI / ISBN verificado.}
+DOI: \href{https://doi.org/10.1016/j.sysarc.2022.102503}{10.1016/j.sysarc.2022.102503}
+
+\paragraph{Resumen (aprox. 100 palabras).}
+Los protocolos de consenso son piezas clave de las cadenas de bloques, pero muchas versiones actuales consumen demasiados recursos, son complejas de configurar o tienen brechas de seguridad, y no encajan en entornos limitados como el Internet de las cosas. Los autores presentan una revisión con una taxonomía de estos protocolos. Parten de sus orígenes (Proof-of-X, tolerancia a fallos bizantinos, Paxos y Raft), incluyen variantes basadas en grafos acíclicos dirigidos y analizan ventajas, desventajas y aplicabilidad en IoT. Cierran con tendencias de investigación y problemas abiertos, y afirman ofrecer un resumen más completo que otras revisiones del área.
+
+\paragraph{Dato concreto.}
+La revisión parte de los protocolos Proof-of-X, tolerancia a fallos bizantinos, Paxos y Raft, y añade variantes basadas en grafos acíclicos dirigidos (DAG), evaluando su aplicabilidad en IoT \textit{(Resumen, p.~1)}.
+
+\paragraph{Nota personal.}
+Esta fuente me permitió conocer que no todos los protocolos de consenso funcionan de la misma manera y que su elección depende de las características del entorno donde se utilizan. Me pareció interesante la relación con el Internet de las cosas, porque los dispositivos pueden tener recursos limitados y no siempre pueden trabajar con protocolos que consumen demasiado. En el TA-IND-01 aprovecharé esta información para comprender mejor la importancia de elegir una arquitectura y mecanismos de comunicación adecuados según las necesidades del sistema.
+
+\clearpage
+
+% =====================================================
+% FICHA 5
+% =====================================================
+\section{Ficha 5}
+
+\paragraph{Referencia (IEEE).}
+\fullcite{kleppmann2026}
+
+\paragraph{DOI / ISBN verificado.}
+ISBN: 978-1-0981-1906-5 (edición impresa)
+
+\paragraph{Resumen (aprox. 100 palabras).}
+Hoy muchas aplicaciones dependen más de los datos que de la potencia de cálculo, y sus retos son la escalabilidad, la consistencia, la fiabilidad, la eficiencia y el mantenimiento. El libro aborda ese problema comparando ventajas e inconvenientes de distintas tecnologías para almacenar y procesar datos, e incorpora en esta segunda edición tecnologías y tendencias recientes. Su método es explicar los principios y la investigación en sistemas distribuidos sobre los que se construyen las bases de datos modernas, apoyándose en la arquitectura de servicios en línea reales. Así, ingenieros y arquitectos pueden entender los fundamentos y elegir con criterio entre alternativas.
+
+\paragraph{Dato concreto.}
+Una aplicación es intensiva en datos cuando la gestión de los datos es uno de sus principales retos; en las intensivas en cómputo, en cambio, el reto es paralelizar un cálculo muy grande \textit{(Capítulo 1, ``Trade-Offs in Data Systems Architecture'')}.
+
+\paragraph{Nota personal.}
+Este libro me ayudó a relacionar los sistemas distribuidos con algo que está presente en muchas aplicaciones: el manejo de grandes cantidades de datos. Entendí que no solamente importa almacenar la información, también hay que procurar que esté disponible, que sea confiable y que pueda consultarse sin afectar el funcionamiento del sistema. En el TA-IND-01 utilizaré estos conocimientos para analizar cómo se administra la información y qué importancia tienen la escalabilidad, la consistencia y la disponibilidad de los datos.
+
+\clearpage
+
+\nocite{abgaz2023,cerny2023,zhang2024,singh2022,kleppmann2026}
+\printbibliography[title={Referencias}]
+
+\end{document}
