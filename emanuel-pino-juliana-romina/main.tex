@@ -1,0 +1,557 @@
+
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{csquotes}
+\usepackage[hidelinks]{hyperref}
+
+\usepackage[
+    backend=biber,
+    style=ieee,
+    sorting=none
+]{biblatex}
+
+\addbibresource{referencias.bib}
+
+\definecolor{azul}{RGB}{35,55,80}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{7pt}
+
+\newcommand{\ficha}[7]{
+
+\subsection*{#1}
+
+\noindent
+{\color{azul}\rule{\linewidth}{0.8pt}}
+
+\textbf{Referencia IEEE:}
+
+\fullcite{#2}
+
+\textbf{DOI verificado:}
+
+\href{https://doi.org/#3}{#3}
+
+\textbf{Resumen del artículo:}
+
+#4
+
+\textbf{Dato concreto:}
+
+#5
+
+\textbf{Nota personal:}
+
+#6
+
+\textbf{Uso en TA-IND-01:}
+
+#7
+
+\vspace{6mm}
+}
+
+\begin{document}
+
+% ==============================
+% PORTADA
+% ==============================
+
+\begin{titlepage}
+\begin{center}
+
+{\Large\bfseries
+UNIVERSIDAD TÉCNICA ESTATAL
+DE QUEVEDO}
+
+\vspace{1.5cm}
+
+{\large
+FACULTAD DE CIENCIAS
+DE LA INGENIERÍA}
+
+\vspace{1.5cm}
+
+{\Large\bfseries
+FICHAS BIBLIOGRÁFICAS}
+
+\vspace{0.5cm}
+
+{\large
+Fundamentos de sistemas distribuidos
+y arquitecturas distribuidas}
+
+\vspace{1.5cm}
+
+\textbf{Actividad:}
+
+FORM-FB-01
+
+\vspace{0.5cm}
+
+\textbf{Asignatura:}
+
+Aplicaciones Distribuidas
+
+\vspace{0.5cm}
+
+\textbf{Estudiante:}
+
+Emanuel Pino Juliana Romina
+
+\vspace{0.5cm}
+
+\textbf{Docente:}
+
+Ing. Guerrero Ulloa Gleiston Ciceron
+
+\vspace{0.5cm}
+
+\textbf{Curso:}
+
+Séptimo Software A
+
+\vfill
+
+Quevedo - Ecuador
+
+Noviembre de 2026
+
+\end{center}
+\end{titlepage}
+
+% ==============================
+% INTRODUCCIÓN
+% ==============================
+
+\section{Introducción}
+
+En esta actividad se revisaron
+cinco artículos académicos
+relacionados con los sistemas
+distribuidos y los microservicios.
+
+Los artículos tratan sobre
+el mantenimiento de aplicaciones.
+También explican cómo evolucionan
+los microservicios y qué dificultades
+pueden aparecer al utilizarlos.
+
+El objetivo es conocer mejor
+estos temas y reunir información
+que pueda servir para el trabajo
+individual TA-IND-01.
+
+% ==============================
+% CRITERIOS
+% ==============================
+
+\section{Criterios de selección}
+
+Para realizar esta actividad
+se seleccionaron cinco artículos
+publicados entre 2023 y 2026.
+
+Las fuentes fueron escogidas
+porque están relacionadas con
+los sistemas distribuidos
+y las arquitecturas
+de microservicios.
+
+También se tomó en cuenta
+que los artículos pertenecieran
+a revistas académicas
+y contaran con un DOI.
+
+Para revisar cada fuente
+se consideraron los siguientes
+aspectos:
+
+\begin{enumerate}[nosep]
+\item El título del artículo.
+\item Los autores y el año.
+\item La revista donde fue publicado.
+\item El problema que investiga.
+\item Los resultados principales.
+\item Un dato concreto del estudio.
+\end{enumerate}
+
+% ==============================
+% FICHAS
+% ==============================
+
+\section{Fichas bibliográficas}
+
+% ==============================
+% FICHA 1
+% ==============================
+
+\ficha
+{Ficha 1. Mantenimiento de microservicios}
+{tighilt2023}
+{10.1016/j.jss.2023.111755}
+{
+El artículo trata sobre los problemas
+que pueden aparecer cuando se
+desarrollan aplicaciones utilizando
+microservicios. Aunque esta
+arquitectura permite dividir un
+sistema en partes independientes
+también pueden presentarse errores
+de diseño que dificultan su
+mantenimiento. Los investigadores
+proponen una herramienta llamada
+MARS que permite identificar
+diferentes antipatrones en los
+microservicios. Para comprobar su
+funcionamiento realizaron pruebas
+con varios sistemas y analizaron
+los resultados obtenidos.
+El estudio muestra que detectar
+estos problemas puede ayudar
+a los desarrolladores a conocer
+qué partes de una aplicación
+necesitan mejoras. Esto resulta
+útil para mantener los sistemas
+organizados y facilitar
+su mantenimiento.
+}
+{
+El estudio presenta 16 antipatrones
+y evalúa la herramienta MARS
+en 24 sistemas.
+
+Ubicación: resultados destacados
+del artículo.
+}
+{
+Este artículo me ayudó a entender
+que trabajar con microservicios
+no significa que una aplicación
+esté bien diseñada automáticamente.
+Pueden aparecer problemas que
+después sean difíciles de corregir.
+Me pareció interesante que existan
+herramientas para identificar
+esos errores.
+}
+{
+Utilizaría esta información
+para analizar si el sistema
+elegido tiene una arquitectura
+organizada y fácil de mantener.
+}
+
+% ==============================
+% FICHA 2
+% ==============================
+
+\ficha
+{Ficha 2. Evolución de microservicios}
+{assuncao2023}
+{10.1016/j.jss.2023.111788}
+{
+Esta investigación estudia cómo
+cambian los microservicios durante
+el desarrollo y mantenimiento
+de una aplicación. Los autores
+analizaron repositorios de
+proyectos de código abierto
+para conocer qué modificaciones
+se realizan con el tiempo.
+Para ello revisaron los cambios
+registrados por los desarrolladores
+e identificaron diferentes
+características de su evolución.
+El estudio permite comprender
+que los microservicios necesitan
+actualizaciones constantes
+y que algunos cambios pueden
+afectar a otros componentes
+del sistema. También muestra
+la importancia de mantener
+una buena organización durante
+el desarrollo. Esta información
+ayuda a entender mejor cómo
+evolucionan las aplicaciones
+distribuidas y qué dificultades
+pueden presentarse.
+}
+{
+El estudio analizó 11 repositorios
+de microservicios de código abierto.
+
+Se revisaron 7.319 commits.
+
+Ubicación: resultados destacados
+del artículo.
+}
+{
+Lo que comprendí es que los
+microservicios no permanecen
+iguales después de crearlos
+porque necesitan cambios
+y mejoras.
+
+También entendí que modificar
+un servicio puede afectar
+al funcionamiento de otros.
+}
+{
+Este artículo me serviría
+para explicar cómo se mantiene
+y evoluciona un sistema distribuido.
+}
+
+% ==============================
+% FICHA 3
+% ==============================
+
+\ficha
+{Ficha 3. Migración hacia microservicios}
+{mohottige2025}
+{10.1016/j.infsof.2025.107732}
+{
+El artículo analiza la
+transformación de sistemas
+tradicionales hacia arquitecturas
+basadas en microservicios.
+Este proceso puede resultar
+complicado porque una aplicación
+monolítica tiene sus componentes
+relacionados y no siempre
+es fácil separarlos.
+Los investigadores realizaron
+una revisión de estudios
+anteriores para identificar
+métodos y herramientas que
+se utilizan durante la migración.
+También analizaron los aspectos
+que deben considerarse para
+evaluar los resultados.
+La investigación permite conocer
+diferentes alternativas para
+realizar este proceso y los
+problemas que pueden surgir.
+El trabajo sirve como referencia
+para comprender qué se necesita
+antes de cambiar la arquitectura
+de una aplicación existente.
+}
+{
+El artículo identifica métodos
+y herramientas que se utilizan
+para transformar sistemas
+tradicionales en microservicios.
+
+Ubicación: resumen del artículo.
+Apartados Context y Objectives.
+}
+{
+Este artículo me pareció útil
+porque estoy aprendiendo sobre
+la transformación de aplicaciones
+tradicionales en sistemas web.
+
+Entendí que cambiar una arquitectura
+no consiste solamente en separar
+el código. También es necesario
+revisar cómo funcionan
+sus componentes.
+}
+{
+Utilizaría esta información
+para comparar una arquitectura
+monolítica con una arquitectura
+basada en microservicios.
+}
+
+% ==============================
+% FICHA 4
+% ==============================
+
+\ficha
+{Ficha 4. Comunicación mediante Service Mesh}
+{nicolas2024}
+{10.1007/s10586-024-04342-5}
+{
+El artículo presenta una propuesta
+para mejorar la integración de
+patrones de procesamiento en
+aplicaciones que utilizan
+microservicios. Los autores
+estudian las limitaciones
+que pueden existir al administrar
+la comunicación y el procesamiento
+entre servicios. Para abordar
+este problema proponen una solución
+basada en service mesh que permite
+organizar diferentes patrones
+de procesamiento. La investigación
+describe las etapas necesarias
+para construir y desplegar estos
+componentes y presenta una
+evaluación de su funcionamiento.
+Este trabajo ayuda a comprender
+que además de desarrollar
+microservicios independientes
+también es necesario contar
+con mecanismos que permitan
+administrar sus conexiones
+y facilitar su funcionamiento
+dentro del sistema.
+}
+{
+La propuesta considera tres fases:
+
+\begin{itemize}[nosep]
+\item Diseño y construcción.
+\item Generación.
+\item Despliegue.
+\end{itemize}
+
+Ubicación: sección 2 del artículo.
+}
+{
+Antes de revisar este tema
+no tenía muy claro para qué
+servía un service mesh.
+
+Ahora comprendo mejor que puede
+ayudar a organizar la comunicación
+entre microservicios.
+
+Me parece importante porque
+un sistema distribuido necesita
+que sus componentes trabajen juntos.
+}
+{
+Utilizaría esta información
+para explicar cómo se comunican
+los servicios y cómo se puede
+administrar esa comunicación.
+}
+
+% ==============================
+% FICHA 5
+% ==============================
+
+\ficha
+{Ficha 5. Consistencia en sistemas distribuidos}
+{bacao2026}
+{10.1007/s00607-026-01701-5}
+{
+Este artículo estudia los
+problemas de consistencia
+que pueden aparecer en
+aplicaciones desarrolladas
+con microservicios orientados
+a eventos. Cuando diferentes
+servicios manejan información
+relacionada pueden existir
+dificultades para mantener
+los datos y procesos actualizados.
+Los autores realizaron una revisión
+de investigaciones para identificar
+los principales problemas
+y las soluciones que se han
+propuesto. El estudio organiza
+la consistencia en tres aspectos:
+datos y procesos y evolución
+del sistema. También explica
+que estos problemas deben
+considerarse durante el diseño
+de una arquitectura distribuida.
+La investigación ayuda
+a comprender la importancia
+de coordinar los servicios
+para mantener un funcionamiento
+correcto.
+}
+{
+El artículo identifica tres tipos
+de consistencia:
+
+\begin{itemize}[nosep]
+\item Consistencia de datos.
+\item Consistencia de procesos.
+\item Consistencia de evolución.
+\end{itemize}
+
+Ubicación: secciones de resultados
+y conclusiones.
+}
+{
+Este artículo me ayudó a comprender
+que uno de los problemas de los
+sistemas distribuidos es mantener
+la información correcta
+entre varios servicios.
+
+Me pareció interesante porque
+no basta con que cada microservicio
+funcione por separado.
+
+También deben coordinarse
+para evitar inconsistencias.
+}
+{
+Utilizaría esta fuente
+para analizar cómo un sistema
+distribuido mantiene sus datos
+actualizados y evita problemas
+de consistencia.
+}
+
+% ==============================
+% REFERENCIAS
+% ==============================
+
+\newpage
+
+\nocite{
+tighilt2023,
+assuncao2023,
+mohottige2025,
+nicolas2024,
+bacao2026
+}
+
+\printbibliography[
+title={Referencias bibliográficas}
+]
+
+% ==============================
+% DECLARACIÓN DE IA
+% ==============================
+
+\section*{Declaración de uso
+de inteligencia artificial}
+
+Para realizar esta actividad
+utilicé ChatGPT como herramienta
+de apoyo para organizar
+las fuentes bibliográficas
+y preparar el documento en LaTeX.
+
+También se utilizó para elaborar
+borradores de los resúmenes
+y las notas personales.
+La redacción se mantuvo sencilla
+para facilitar la comprensión
+de los temas.
+
+Los datos y resultados citados
+deben comprobarse con
+los artículos originales
+antes de entregar el trabajo.
+
+\end{document}
+
